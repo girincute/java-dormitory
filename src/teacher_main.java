@@ -93,7 +93,7 @@ class UImain extends JFrame {
 
 		messagelabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 쪽지보내기
+				send_message_teacher send_message_teacher = new send_message_teacher(); // 쪽지보내기
 			}
 		});
 		

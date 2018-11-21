@@ -125,10 +125,9 @@ class UItest extends JFrame {
 		
 		sendlabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 쪽지보내기
+		    	send_message_student message  = new send_message_student(); // 쪽지보내기
 		    }  
 		}); 
-		
 		
 		ImageIcon postbox = new ImageIcon("img//postbox.png");
 		JLabel postboxlabel = new JLabel(postbox);

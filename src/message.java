@@ -17,8 +17,6 @@ class message_room_student extends JFrame {
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-			// 세탁기 버튼
-		
 
 		JLabel date = new JLabel("2018-11-21");
 		date.setFont(new Font("나눔고딕", 20, 20)); // 폰트 설정
@@ -57,7 +55,6 @@ class message_room_teacher extends JFrame {
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-			// 세탁기 버튼
 		
 
 		JLabel date = new JLabel("2018-11-21");
@@ -91,7 +88,87 @@ class message_room_teacher extends JFrame {
 }
 
 
+class send_message_student extends JFrame {
+	
+	send_message_student() {
+		
+	
+		this.setTitle("Dormitory Management System_write_laundry");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(null);
 
+
+		JLabel send_teacher = new JLabel("사감 선생님");
+		send_teacher.setFont(new Font("나눔고딕", 30, 30)); // 폰트 설정
+		send_teacher.setBounds(370, 185, 170, 70);
+		this.add(send_teacher);
+		
+		JTextField post = new JTextField("내용");
+		post.setBounds(170, 270, 600, 300);
+		this.add(post);
+		
+		ImageIcon send_message = new ImageIcon("img//send_message.png");
+		JLabel send_messagelabel = new JLabel(send_message);
+		send_messagelabel.setBounds(820, 520, 120, 70);
+		this.add(send_messagelabel);
+
+		
+		
+		ImageIcon backicon = new ImageIcon("img//send_message.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
+		
+		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
+		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
+		// 수 있게 하는게 디맨션
+		this.pack();
+		this.setSize(1080, 720);
+		this.setVisible(true);
+		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+}
+
+class send_message_teacher extends JFrame {
+	
+	send_message_teacher() {
+		
+	
+		this.setTitle("Dormitory Management System_write_laundry");
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(null);
+
+		JLabel search = new JLabel("신선영");
+		search.setFont(new Font("나눔고딕", 30, 30)); // 폰트 설정
+		search.setBounds(370, 200, 170, 40);
+		this.add(search);
+
+		
+		JTextField post = new JTextField("내용");
+		post.setBounds(170, 270, 600, 300);
+		this.add(post);
+		
+		ImageIcon send_message = new ImageIcon("img//send_message.png");
+		JLabel send_messagelabel = new JLabel(send_message);
+		send_messagelabel.setBounds(820, 520, 120, 70);
+		this.add(send_messagelabel);
+
+		
+		
+		ImageIcon backicon = new ImageIcon("img//send_message.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
+
+		this.pack();
+		this.setSize(1080, 720);
+		this.setVisible(true);
+		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+
+	}
+}
 
 
 
@@ -99,7 +176,7 @@ class message_room_teacher extends JFrame {
 public class message {
 	public static void main(String[] args) {
 //
-//		new message_room_teacher();
+//		new send_message_teacher();
 //		
 	}
 

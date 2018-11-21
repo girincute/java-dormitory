@@ -51,10 +51,9 @@ class loginUI extends JFrame {
 		
 		loginlabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 로그인
+		    	send_message_teacher send_message_teacher = new send_message_teacher(); // 회원가입
 		    }  
 		}); 
-		
 		
 		
 		
@@ -64,16 +63,10 @@ class loginUI extends JFrame {
 		this.add(backlabel);
 		
 		
-
-
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 }
