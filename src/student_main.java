@@ -4,24 +4,20 @@ import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.*;
 
 class UItest extends JFrame {
+	
 	UItest() {
 
 		this.setTitle("Dormitory Management System");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-
-		JLabel la = new JLabel();
-		this.add(la);
 		
+		addWindowListener(new WindowHandler());
+
 		// 닉네임
 		
 		JLabel nickname = new JLabel("신선영" + " 님");
@@ -164,7 +160,8 @@ class UItest extends JFrame {
 		
 		laundrylabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 세탁일지 클릭했을 때
+		    	 //A a = new A();
+		    	write_laundryUI laundryUI = new write_laundryUI();
 		    }  
 		}); 
 
@@ -175,7 +172,7 @@ class UItest extends JFrame {
 		
 		outlabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 외박일지 클릭했을 때
+		    	write_outUI outUI = new write_outUI();
 		    }  
 		}); 
 
@@ -209,6 +206,7 @@ class UItest extends JFrame {
 		backlabel.setBounds(0, 0, 1080, 720);
 		this.add(backlabel);
 
+		
 		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
 		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
 		// 수 있게 하는게 디맨션
@@ -219,7 +217,18 @@ class UItest extends JFrame {
 		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
+	
+	class WindowHandler extends WindowAdapter {
+		public void windowClosing(WindowEvent e) {
+			Window w = e.getWindow();
+			w.dispose();
+		}
+	}
+
+	
 }
+
+
 
 public class student_main {
 	public static void main(String[] args) {
