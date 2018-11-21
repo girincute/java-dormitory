@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.*;
 
-import UItest.WindowHandler;
 
 
 class write_laundryUI extends JFrame {
@@ -20,10 +19,7 @@ class write_laundryUI extends JFrame {
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-		
-		addWindowListener(new WindowHandler());
-
-		// 세탁기 버튼
+			// 세탁기 버튼
 		
 		ImageIcon laundry_1 = new ImageIcon("img//laundry_1.png");
 		JLabel laundry_1label = new JLabel(laundry_1);
@@ -68,14 +64,13 @@ class write_outUI extends JFrame {
 		this.setLayout(null);
 
 		
-//		JComboBox out_kinds = new JcomboBox();
-//		out_kinds.setModel(new DefaultComboBoxModel(new String[] { "금토외박", "토요외박", "잔류", "특이" } ) );
+		String out_kinds_arr[] = { "금토외박", "토요외박", "잔류", "특이"};
+		
+		JComboBox out_kinds = new JComboBox(out_kinds_arr);
+		out_kinds.setBounds(50,480,400,75);
+		this.add(out_kinds);
 
-		
-		
-//		JComboBox scrollpane = new JComboBox(table);
-//		scrollpane.setBounds(50, 480, 400, 75);
-//		this.add(scrollpane);
+	
 		
 		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
 		JLabel backlabel = new JLabel(backicon);
@@ -95,12 +90,6 @@ class write_outUI extends JFrame {
 }
 
 
-class WindowHandler extends WindowAdapter {
-	public void windowClosing(WindowEvent e) {
-		Window w = e.getWindow();
-		w.dispose();
-	}
-}
 
 
 public class write_all {
