@@ -104,7 +104,7 @@ class UImain extends JFrame {
 
 		postboxlabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 쪽지함
+				message_room_teacher message_room_teacherUI = new message_room_teacher(); // 쪽지함
 			}
 		});
 		

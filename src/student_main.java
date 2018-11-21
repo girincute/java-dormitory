@@ -137,7 +137,7 @@ class UItest extends JFrame {
 		
 		postboxlabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 쪽지함
+		    	message_room_student message_room_student = new message_room_student();
 		    }  
 		}); 
 
@@ -160,8 +160,7 @@ class UItest extends JFrame {
 		
 		laundrylabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	 //A a = new A();
-		    	write_laundryUI laundryUI = new write_laundryUI();
+		    	write_laundryUI laundryUI = new write_laundryUI(); // 세탁일지
 		    }  
 		}); 
 
