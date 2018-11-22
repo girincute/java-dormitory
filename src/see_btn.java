@@ -20,7 +20,8 @@ class write_laundryUI extends JFrame {
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-			// 세탁기 버튼
+		
+		// 세탁기 버튼
 		
 		ImageIcon laundry_1 = new ImageIcon("img//laundry_1.png");
 		JLabel laundry_1label = new JLabel(laundry_1);
@@ -69,8 +70,23 @@ class write_outUI extends JFrame { // 외박일지
 		String out_kinds_arr[] = { "금토외박", "토요외박", "잔류", "특이"};
 		
 		JComboBox out_kinds = new JComboBox(out_kinds_arr);
-		out_kinds.setBounds(50,480,400,75);
+		out_kinds.setBounds(420,290,200,75);
 		this.add(out_kinds);
+
+		JTextField tel = new JTextField(10);
+		tel.setBounds(420,405,200,40);
+		this.add(tel);
+		
+		ImageIcon send_out = new ImageIcon("img//send_message.png"); // 전송버튼
+		JLabel send_out_label = new JLabel(send_out);
+		send_out_label.setBounds(660, 330, 115, 70);
+		this.add(send_out_label);
+		
+		send_out_label.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				//전송버튼 누를 시
+			}
+		});
 
 	
 		
@@ -79,9 +95,6 @@ class write_outUI extends JFrame { // 외박일지
 		backlabel.setBounds(0, 0, 1080, 720);
 		this.add(backlabel);
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
@@ -134,7 +147,7 @@ class write_soonoutUI extends JFrame { // 외출일지
 		
 		JLabel index = new JLabel("외출일지");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
+		index.setBounds(250, 200, 400, 70);
 		this.add(index);
 		
 //		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
@@ -160,7 +173,7 @@ class write_soonoutUI extends JFrame { // 외출일지
 public class see_btn {
 	public static void main(String[] args) {
 //
-//		new write_outUI();
+		new write_outUI();
 //		
 	}
 
