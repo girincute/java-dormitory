@@ -15,8 +15,7 @@ class UItest extends JFrame {
 		this.setTitle("Dormitory Management System");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-		
-		addWindowListener(new WindowHandler());
+	
 
 		// 닉네임
 		
@@ -204,26 +203,15 @@ class UItest extends JFrame {
 		backlabel.setBounds(0, 0, 1080, 720);
 		this.add(backlabel);
 
-		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
+	
 		this.pack();
 		this.setSize(1080, 720);
+		this.dispose();
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
-	
-	class WindowHandler extends WindowAdapter {
-		public void windowClosing(WindowEvent e) {
-			Window w = e.getWindow();
-			w.dispose();
-		}
-	}
-
-	
 }
 
 

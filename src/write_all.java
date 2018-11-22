@@ -48,9 +48,10 @@ class write_laundryUI extends JFrame {
 		// 수 있게 하는게 디맨션
 		this.pack();
 		this.setSize(1080, 720);
+		this.dispose();
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }
@@ -83,8 +84,9 @@ class write_outUI extends JFrame {
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
+		dispose();
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }

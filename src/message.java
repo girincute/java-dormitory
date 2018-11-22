@@ -33,15 +33,12 @@ class message_room_student extends JFrame {
 		JLabel backlabel = new JLabel(backicon);
 		backlabel.setBounds(0, 0, 1080, 720);
 		this.add(backlabel);
-		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
+
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }
@@ -82,7 +79,7 @@ class message_room_teacher extends JFrame {
 		this.setSize(1080, 720);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }
@@ -126,7 +123,7 @@ class send_message_student extends JFrame {
 		this.setSize(1080, 720);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		// this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }

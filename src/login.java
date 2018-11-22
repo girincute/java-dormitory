@@ -12,6 +12,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.*;
 
+
+
 class loginUI extends JFrame {
 	loginUI() {
 
@@ -35,10 +37,13 @@ class loginUI extends JFrame {
 		    	// 로그인
 		    }  
 		}); 
-		
-		JTextField id = new JTextField("ID");
+
+				
+		TextField id = new TextField(10);
+		JLabel id_place = new JLabel("ID");
 		id.setBounds(450, 290, 180, 40);
 		this.add(id);
+		//this.id.add(id_place);
 		
 		JTextField pw = new JTextField("PW");
 		pw.setBounds(450, 375, 180, 40);
@@ -67,6 +72,7 @@ class loginUI extends JFrame {
 		this.setSize(1080, 720);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }
