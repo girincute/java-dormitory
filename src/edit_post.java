@@ -11,18 +11,18 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 
-class noticeUI extends JFrame { // 공지사항
+class plus_and_minus_edit_UI extends JFrame { // 상벌점 추가/삭제
 	
-	noticeUI() {
+	plus_and_minus_edit_UI() {
 
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("공지사항 더보기");
+		JLabel index = new JLabel("상벌점 수정");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
+		index.setBounds(170, 200, 600, 70);
 		this.add(index);
 		
 //		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
@@ -42,19 +42,18 @@ class noticeUI extends JFrame { // 공지사항
 	}
 }
 
-
-class plus_and_minusUI extends JFrame { // 상벌점 더보기
+class classroom_edit_UI extends JFrame { // 청소구역 수정
 	
-	plus_and_minusUI() {
+	classroom_edit_UI() {
 
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("상벌점 더보기");
+		JLabel index = new JLabel("청소구역 수정");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
+		index.setBounds(170, 200, 600, 70);
 		this.add(index);
 		
 //		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
@@ -74,47 +73,16 @@ class plus_and_minusUI extends JFrame { // 상벌점 더보기
 	}
 }
 
-class cleanclassUI extends JFrame { // 청소구역 전체보기
+class notice_edit_UI extends JFrame { // 공지사항 수정
 	
-	cleanclassUI() {
+	notice_edit_UI() {
 
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("청소구역 전체보기");
-		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
-		this.add(index);
-		
-//		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
-//		JLabel backlabel = new JLabel(backicon);
-//		backlabel.setBounds(0, 0, 1080, 720);
-//		this.add(backlabel);
-		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
-		this.pack();
-		this.setSize(1080, 720);
-		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
-	}
-}
-
-class student_listUI extends JFrame { // 학생 리스트 전체보기
-	
-	student_listUI() {
-
-		this.setTitle("Dormitory Management System_write_laundry");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setLayout(null);
-
-		
-		JLabel index = new JLabel("학생 리스트 전체보기");
+		JLabel index = new JLabel("공지사항 확인, 수정");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
 		index.setBounds(170, 200, 600, 70);
 		this.add(index);
@@ -137,8 +105,6 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 }
 
 
-
-
-public class see_post {
+public class edit_post {
 
 }

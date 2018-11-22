@@ -1,4 +1,4 @@
-// 포스트들에 관련된 (공지사항 더보기, 상벌점 더보기, 청소구역 전체보기 ) UI
+// 쪽지와 관련된 (쪽지함, 쪽지보내기) UI
 
 
 import java.awt.*;
@@ -11,16 +11,18 @@ import javax.swing.*;
 import javax.swing.event.*;
 
 
-class noticeUI extends JFrame { // 공지사항
+
+
+class check_laundry_UI extends JFrame {
 	
-	noticeUI() {
+	check_laundry_UI() {
 
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("공지사항 더보기");
+		JLabel index = new JLabel("세탁일지확인");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
 		index.setBounds(170, 200, 400, 70);
 		this.add(index);
@@ -43,16 +45,16 @@ class noticeUI extends JFrame { // 공지사항
 }
 
 
-class plus_and_minusUI extends JFrame { // 상벌점 더보기
+class check_out_UI extends JFrame { // 외박일지 확인
 	
-	plus_and_minusUI() {
+	check_out_UI() {
 
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("상벌점 더보기");
+		JLabel index = new JLabel("외박일지 확인");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
 		index.setBounds(170, 200, 400, 70);
 		this.add(index);
@@ -74,16 +76,17 @@ class plus_and_minusUI extends JFrame { // 상벌점 더보기
 	}
 }
 
-class cleanclassUI extends JFrame { // 청소구역 전체보기
+
+class check_aircon_UI extends JFrame { // 에어컨신청 확인
 	
-	cleanclassUI() {
+	check_aircon_UI() {
 
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("청소구역 전체보기");
+		JLabel index = new JLabel("에어컨신청 확인");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
 		index.setBounds(170, 200, 400, 70);
 		this.add(index);
@@ -105,18 +108,18 @@ class cleanclassUI extends JFrame { // 청소구역 전체보기
 	}
 }
 
-class student_listUI extends JFrame { // 학생 리스트 전체보기
+class check_soonout_UI extends JFrame { // 외출일지 확인
 	
-	student_listUI() {
+	check_soonout_UI() {
 
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("학생 리스트 전체보기");
+		JLabel index = new JLabel("외출일지 확인");
 		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 600, 70);
+		index.setBounds(170, 200, 400, 70);
 		this.add(index);
 		
 //		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
@@ -138,7 +141,9 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 
 
 
+public class edit_btn {
+	public static void main(String[] args) {
 
-public class see_post {
+	}
 
 }

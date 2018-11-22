@@ -32,6 +32,13 @@ class UImain extends JFrame {
 		JLabel searchlabel = new JLabel(searchbtn);
 		searchlabel.setBounds(315, 12, 140, 85);
 		this.add(searchlabel);
+		
+		searchlabel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				search_student_UI search_student = new search_student_UI();// 검색 버튼 누르면
+			}
+		});
+		
 
 		// 닉네임
 
@@ -66,7 +73,7 @@ class UImain extends JFrame {
 
 		modifi_clean_label.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 수정(청소구역)
+				classroom_edit_UI classroom_edit = new classroom_edit_UI(); // 수정(청소구역)
 			}
 		});
 		
@@ -77,7 +84,7 @@ class UImain extends JFrame {
 
 		modifiandremovelabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 수정 및 삭제(상벌점 현황)
+				plus_and_minus_edit_UI plus_and_minus_edit = new plus_and_minus_edit_UI(); // 수정 및 삭제(상벌점 현황)
 			}
 		});
 
@@ -131,7 +138,7 @@ class UImain extends JFrame {
 
 		laundrylabel_teacher.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 세탁일지 클릭했을 때
+				check_laundry_UI check_laundry = new check_laundry_UI();// 세탁일지 클릭했을 때
 			}
 		});
 
@@ -142,7 +149,7 @@ class UImain extends JFrame {
 
 		outlabel_teacher.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 외박일지 클릭했을 때
+				check_out_UI check_out = new check_out_UI();// 외박일지 클릭했을 때
 			}
 		});
 
@@ -153,7 +160,7 @@ class UImain extends JFrame {
 
 		airconlabel_teacher.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 에어컨 신청 클릭했을 때
+				check_aircon_UI check_aircon = new check_aircon_UI(); // 에어컨 신청 클릭했을 때
 			}
 		});
 
@@ -164,7 +171,7 @@ class UImain extends JFrame {
 
 		soonoutlabel_teacher.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 외출일지 클릭했을 때
+				check_soonout_UI check_soonout = new check_soonout_UI(); // 외출일지 클릭했을 때
 			}
 		});
 		
@@ -177,7 +184,7 @@ class UImain extends JFrame {
 
 		noticelabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 공지사랑
+				notice_edit_UI notice_edit = new notice_edit_UI();// 공지사랑
 			}
 		});
 		
