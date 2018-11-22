@@ -154,19 +154,34 @@ class write_soonoutUI extends JFrame { // 외출일지
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("외출일지");
-		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(250, 200, 400, 70);
-		this.add(index);
+		JTextField hour = new JTextField(2);
+		hour.setBounds(540,290,50,60);
+		this.add(hour);
 		
-//		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
-//		JLabel backlabel = new JLabel(backicon);
-//		backlabel.setBounds(0, 0, 1080, 720);
-//		this.add(backlabel);
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
+		JTextField minute = new JTextField(2);
+		minute.setBounds(650,290,50,60);
+		this.add(minute);
+		
+		ImageIcon send_out = new ImageIcon("img//send_message.png"); // 전송버튼
+		JLabel send_out_label = new JLabel(send_out);
+		send_out_label.setBounds(480, 450, 115, 70);
+		this.add(send_out_label);
+		
+		send_out_label.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				//전송버튼 누를 시
+			}
+		});
+		
+		
+		
+		ImageIcon backicon = new ImageIcon("img//soonout_back.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
+		
+
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
@@ -182,7 +197,7 @@ class write_soonoutUI extends JFrame { // 외출일지
 public class see_btn {
 	public static void main(String[] args) {
 //
-		new write_airconUI();
+//		new write_soonoutUI();
 //		
 	}
 
