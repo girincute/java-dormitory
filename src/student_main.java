@@ -1,3 +1,4 @@
+// 학생 전체 UI
 
 import java.awt.*;
 import java.awt.event.*;
@@ -50,7 +51,7 @@ class UItest extends JFrame {
 		
 		more_postlable.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 공지사항 전체 보기
+		    	noticeUI notice = new noticeUI(); // 공지사항 전체 보기
 		    }  
 		}); 
 
@@ -70,7 +71,7 @@ class UItest extends JFrame {
 		
 		seealllable.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 청소 구역 전체 보기
+		    	cleanclassUI cleanclass = new cleanclassUI();// 청소 구역 전체 보기
 		    }  
 		}); 
 		
@@ -109,7 +110,7 @@ class UItest extends JFrame {
 		
 		more_tablelabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 상 벌점 더 보기
+		    	plus_and_minusUI plus_and_minus = new plus_and_minusUI(); // 상벌점 더 보기
 		    }  
 		}); 
 		
@@ -147,7 +148,7 @@ class UItest extends JFrame {
 		
 		profilelabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 정보수정
+		    	Changing_informationUI changing_informationUI = new Changing_informationUI();  // 정보수정 클릭했을 때
 		    }  
 		}); 
 		
@@ -180,7 +181,7 @@ class UItest extends JFrame {
 		
 		airconlabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 에어컨 신청 클릭했을 때
+		    	write_airconUI airconUI = new write_airconUI(); // 에어컨 신청 클릭했을 때
 		    }  
 		}); 		
 		
@@ -193,7 +194,7 @@ class UItest extends JFrame {
 		
 		soonoutlabel.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	// 외출일지 클릭했을 때
+		    	write_soonoutUI soonoutUI = new write_soonoutUI(); // 외출일지 클릭했을 때
 		    }  
 		}); 	
 		

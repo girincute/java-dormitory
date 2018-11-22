@@ -1,3 +1,4 @@
+// 쪽지와 관련된(쪽지함, 쪽지보내기) UI
 
 import java.awt.*;
 import java.awt.event.*;

@@ -1,3 +1,4 @@
+// 사감 선생님 전체 UI
 
 import java.awt.*;
 import java.awt.event.*;

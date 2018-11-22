@@ -1,3 +1,4 @@
+// 회원가입 UI
 
 import java.awt.*;
 import java.awt.event.*;
