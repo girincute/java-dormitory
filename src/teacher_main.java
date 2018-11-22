@@ -83,9 +83,21 @@ class UImain extends JFrame {
 
 		
 		
-		
 
-		// 버튼 (메세지, 우편함, 세탁일지, 외박일지, 에어컨사용, 외출일지)
+		// 버튼 (학생 리스트, 메세지, 우편함, 세탁일지, 외박일지, 에어컨사용, 외출일지)
+		
+		
+		
+		ImageIcon student_list = new ImageIcon("img//student_list.png");
+		JLabel student_listlabel = new JLabel(student_list);
+		student_listlabel.setBounds(500, 110, 200, 100);
+		this.add(student_listlabel);
+		
+		student_listlabel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				student_listUI student_list = new student_listUI(); // 학생 리스트 전체 보기
+			}
+		});		
 
 		ImageIcon message = new ImageIcon("img//profile.png");
 		JLabel messagelabel = new JLabel(message);
