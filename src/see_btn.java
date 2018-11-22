@@ -88,7 +88,6 @@ class write_outUI extends JFrame { // 외박일지
 			}
 		});
 
-	
 		
 		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
 		JLabel backlabel = new JLabel(backicon);
@@ -104,7 +103,7 @@ class write_outUI extends JFrame { // 외박일지
 	}
 }
 
-class write_airconUI extends JFrame {
+class write_airconUI extends JFrame { // 에어컨 신청
 	
 	write_airconUI() {
 
@@ -113,19 +112,29 @@ class write_airconUI extends JFrame {
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("에어컨신청");
-		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
+		JLabel index = new JLabel("~ 14:00");
+		index.setFont(new Font("나눔고딕", 30, 30)); // 폰트 설정
+		index.setBounds(530, 300, 200, 70);
 		this.add(index);
 		
-//		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
-//		JLabel backlabel = new JLabel(backicon);
-//		backlabel.setBounds(0, 0, 1080, 720);
-//		this.add(backlabel);
+		ImageIcon send_aircon = new ImageIcon("img//apply.png"); // 전송버튼
+		JLabel send_aircon_label = new JLabel(send_aircon);
+		send_aircon_label.setBounds(480, 480, 130, 80);
+		this.add(send_aircon_label);
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
+		send_aircon_label.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				//전송버튼 누를 시
+			}
+		});
+		
+		ImageIcon backicon = new ImageIcon("img//aircon_back.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
+		
+
+
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
@@ -173,7 +182,7 @@ class write_soonoutUI extends JFrame { // 외출일지
 public class see_btn {
 	public static void main(String[] args) {
 //
-		new write_outUI();
+		new write_airconUI();
 //		
 	}
 
