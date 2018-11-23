@@ -153,19 +153,16 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("학생 리스트 전체보기");
-		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 600, 70);
-		this.add(index);
+		JLabel student_num = new JLabel("2210" + "         " + "신선영" + "         " + "인천광역시 치킨구 피자로 112 198동 1908호" + "    " + "010-7334-0777" );
+		student_num.setFont(new Font("나눔고딕", 20, 20)); // 폰트 설정
+		student_num.setBounds(190, 230, 1000, 70);
+		this.add(student_num);
 		
-//		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
-//		JLabel backlabel = new JLabel(backicon);
-//		backlabel.setBounds(0, 0, 1080, 720);
-//		this.add(backlabel);
+		ImageIcon backicon = new ImageIcon("img//allstudent_list_back.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
@@ -179,7 +176,7 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 
 public class see_post {
 	public static void main(String[] args) {
-		//new cleanclassUI();
+		//new student_listUI();
 	}
 
 }
