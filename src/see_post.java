@@ -132,9 +132,6 @@ class cleanclassUI extends JFrame { // 청소구역 전체보기
 		backlabel.setBounds(0, 0, 1080, 720);
 		this.add(backlabel);
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
@@ -151,6 +148,35 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 		this.setTitle("Dormitory Management System_write_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
+		
+		String room[] = {"401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "415", "416", "417"};
+		
+		JComboBox room_arr = new JComboBox(room);
+		room_arr.setBounds(630, 40, 100, 40);
+		this.add(room_arr);
+		
+		ImageIcon searchbtn_small = new ImageIcon("img//searchbtn_small.png"); // 검색
+		JLabel searchbtn_small_label = new JLabel(searchbtn_small);
+		searchbtn_small_label.setBounds(730, 20, 130, 80);
+		this.add(searchbtn_small_label);
+		
+		searchbtn_small_label.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				// 검색버튼 눌렀을 때
+			}
+		});
+		
+		ImageIcon add_and_del = new ImageIcon("img//add_and_del.png"); // 추가/삭제
+		JLabel add_and_del_label = new JLabel(add_and_del);
+		add_and_del_label.setBounds(860, 32, 145, 55);
+		this.add(add_and_del_label);
+		
+		add_and_del_label.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				// 추가/삭제 클릭했을 때
+			}
+		});
+
 
 		
 		JLabel student_num = new JLabel("2210" + "         " + "신선영" + "         " + "인천광역시 치킨구 피자로 112 198동 1908호" + "    " + "010-7334-0777" );
@@ -176,7 +202,7 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 
 public class see_post {
 	public static void main(String[] args) {
-		//new student_listUI();
+		new student_listUI();
 	}
 
 }
