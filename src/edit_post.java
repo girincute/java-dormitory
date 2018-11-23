@@ -30,9 +30,6 @@ class plus_and_minus_edit_UI extends JFrame { // 상벌점 추가/삭제
 //		backlabel.setBounds(0, 0, 1080, 720);
 //		this.add(backlabel);
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
@@ -81,20 +78,29 @@ class notice_edit_UI extends JFrame { // 공지사항 수정
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
+		//공지사항 내용
+		JTextField search = new JTextField();
+		search.setBounds(120, 150, 840, 410);
+		this.add(search);
 		
-		JLabel index = new JLabel("공지사항 확인, 수정");
-		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 600, 70);
-		this.add(index);
+		//변경 버튼
+		ImageIcon changbtn = new ImageIcon("img//changbtn.png");
+		JLabel changbtn_label = new JLabel(changbtn);
+		changbtn_label.setBounds(420, 590, 170, 70);
+		this.add(changbtn_label);
 		
-//		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
-//		JLabel backlabel = new JLabel(backicon);
-//		backlabel.setBounds(0, 0, 1080, 720);
-//		this.add(backlabel);
+		changbtn_label.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				// 변경버튼 클릭했을 때
+			}
+		});
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
+		// 배경
+		ImageIcon backicon = new ImageIcon("img//upload_notice.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
+		
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
@@ -106,5 +112,7 @@ class notice_edit_UI extends JFrame { // 공지사항 수정
 
 
 public class edit_post {
-
+	public static void main(String[] args) {
+		new notice_edit_UI();
+	}
 }

@@ -66,7 +66,7 @@ class signupUI extends JFrame {
 
 public class signup {
 	public static void main(String[] args) {
-	//	new signupUI();
+		new signupUI();
 	}
 
 }
