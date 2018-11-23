@@ -18,20 +18,21 @@ class Changing_informationUI extends JFrame { // 정보수정
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
+		JTextField search = new JTextField(40);
+		search.setBounds(450, 335, 270, 40);
+		this.add(search);
 		
-		JLabel index = new JLabel("정보수정");
-		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
-		this.add(index);
+		ImageIcon changebtn = new ImageIcon("img//changbtn.png");
+		JLabel changebtn_label = new JLabel(changebtn);
+		changebtn_label.setBounds(450, 550, 170, 70);
+		this.add(changebtn_label);
+
 		
-//		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
-//		JLabel backlabel = new JLabel(backicon);
-//		backlabel.setBounds(0, 0, 1080, 720);
-//		this.add(backlabel);
+		ImageIcon backicon = new ImageIcon("img//changing_information_back.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
 		
-		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
-		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
-		// 수 있게 하는게 디맨션
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);

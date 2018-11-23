@@ -84,15 +84,53 @@ class cleanclassUI extends JFrame { // 청소구역 전체보기
 		this.setLayout(null);
 
 		
-		JLabel index = new JLabel("청소구역 전체보기");
-		index.setFont(new Font("나눔고딕", 50, 50)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
-		this.add(index);
+		JLabel clean_face_room = new JLabel("501");
+		clean_face_room.setFont(new Font("나눔고딕", 35, 35)); // 세면실
+		clean_face_room.setBounds(300, 200, 400, 70);
+		this.add(clean_face_room);
 		
-//		ImageIcon backicon = new ImageIcon("img//write_out_back.jpg");
-//		JLabel backlabel = new JLabel(backicon);
-//		backlabel.setBounds(0, 0, 1080, 720);
-//		this.add(backlabel);
+		
+		JLabel shower_room = new JLabel("502");
+		shower_room.setFont(new Font("나눔고딕", 35, 35)); // 샤워실
+		shower_room.setBounds(300, 300, 400, 70);
+		this.add(shower_room);
+		
+		
+		JLabel laundry_room = new JLabel("503");
+		laundry_room.setFont(new Font("나눔고딕", 35, 35)); // 세탁실
+		laundry_room.setBounds(300, 410, 400, 70);
+		this.add(laundry_room);
+		
+		JLabel bath_room = new JLabel("504");
+		bath_room.setFont(new Font("나눔고딕", 35, 35)); // 화장실
+		bath_room.setBounds(300, 510, 400, 70);
+		this.add(bath_room);
+
+		
+		JLabel hall_room = new JLabel("505");
+		hall_room.setFont(new Font("나눔고딕", 35, 35)); // 복도
+		hall_room.setBounds(730, 230, 400, 70);
+		this.add(hall_room);
+		
+		
+		JLabel stair_room = new JLabel("506");
+		stair_room.setFont(new Font("나눔고딕", 35, 35)); // 계단
+		stair_room.setBounds(730, 340, 400, 70);
+		this.add(stair_room);
+		
+		
+		JLabel rest_room = new JLabel("507");
+		rest_room.setFont(new Font("나눔고딕", 35, 35)); // 휴게실
+		rest_room.setBounds(730, 445, 400, 70);
+		this.add(rest_room);
+		
+		/////
+		
+		
+		ImageIcon backicon = new ImageIcon("img//cleanroom_back.jpg");
+		JLabel backlabel = new JLabel(backicon);
+		backlabel.setBounds(0, 0, 1080, 720);
+		this.add(backlabel);
 		
 		// this.setResizable(false); // 프로그램을 함부로 크기 조정할 수 있나?
 		// this.setPreferredSize(new Dimension(1080, 1080 / 12 * 9)); // 왼쪽, 오른쪽 둘 다 넣을
@@ -141,7 +179,7 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 
 public class see_post {
 	public static void main(String[] args) {
-		new plus_and_minusUI();
+		//new cleanclassUI();
 	}
 
 }

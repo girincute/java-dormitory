@@ -78,14 +78,14 @@ class UItest extends JFrame {
 			}
 		});
 
-		// 청소 구역
+		// 청소구역
 
 		JLabel todayclean = new JLabel("복도");
 		todayclean.setFont(new Font("나눔고딕", 35, 35)); // 폰트 설정
 		todayclean.setBounds(600, 200, 400, 300);
 		this.add(todayclean);
 
-		// 청소 구역 전체보기
+		// 청소구역 전체보기
 
 		ImageIcon seeall = new ImageIcon("img//seeall.png");
 		JLabel seealllable = new JLabel(seeall);
