@@ -191,7 +191,7 @@ class write_soonoutUI extends JFrame { // 외출일지
 public class see_btn {
 	public static void main(String[] args) {
 		//
-		new write_laundryUI();
+		//new write_laundryUI();
 		//
 	}
 
