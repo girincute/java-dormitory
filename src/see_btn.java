@@ -25,6 +25,59 @@ class write_laundryUI extends JFrame {
 		laundry_num.setBounds(290, 580, 50, 40);
 		this.add(laundry_num);
 
+		
+		// ±ÛÀÚµé
+		
+		JLabel one_one = new JLabel("¿©±â");
+		one_one.setFont(new Font("³ª´®°íµñ", 30, 30));
+		one_one.setBounds(275, 250, 120, 50);
+		this.add(one_one);
+		
+		
+		JLabel one_two = new JLabel("¿¡´Ù");
+		one_two.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		one_two.setBounds(275, 340, 120, 50);
+		this.add(one_two);
+		
+		JLabel one_three = new JLabel("³Ö¾î");
+		one_three.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		one_three.setBounds(275, 430, 120, 50);
+		this.add(one_three);
+		
+		
+		
+		JLabel two_one = new JLabel("¿¹¸¦");
+		two_one.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		two_one.setBounds(560, 250, 120, 50);
+		this.add(two_one);
+		
+		JLabel two_two = new JLabel("µé¸é");
+		two_two.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		two_two.setBounds(560, 340, 120, 50);
+		this.add(two_two);
+		
+		JLabel two_three = new JLabel("401");
+		two_three.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		two_three.setBounds(560, 430, 120, 50);
+		this.add(two_three);
+		
+		
+		
+		JLabel three_one = new JLabel("417");
+		three_one.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		three_one.setBounds(845, 250, 120, 50);
+		this.add(three_one);
+		
+		JLabel three_two = new JLabel("405");
+		three_two.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		three_two.setBounds(845, 340, 120, 50);
+		this.add(three_two);
+		
+		JLabel three_three = new JLabel("-");
+		three_three.setFont(new Font("³ª´®°íµñ", 30, 30)); 
+		three_three.setBounds(845, 430, 120, 50);
+		this.add(three_three);
+
 
 		// ½Ã°£
 
@@ -191,7 +244,7 @@ class write_soonoutUI extends JFrame { // ¿ÜÃâÀÏÁö
 public class see_btn {
 	public static void main(String[] args) {
 		//
-		//new write_laundryUI();
+		new write_laundryUI();
 		//
 	}
 

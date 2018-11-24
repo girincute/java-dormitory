@@ -54,6 +54,7 @@ class signupUI extends JFrame {
 		this.setSize(1080, 720);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }
