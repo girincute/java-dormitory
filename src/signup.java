@@ -1,3 +1,4 @@
+
 // 회원가입 UI
 
 import java.awt.*;
@@ -19,43 +20,36 @@ class signupUI extends JFrame {
 		this.setTitle("Dormitory Management System");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-		
-		
-		ImageIcon signupicon = new ImageIcon("img//signupicon.png");
+
+		// test
+
+		String id = "1234";
+		String pw = "tlstjsdud";
+
+		JTextField send_id = new JTextField();
+		send_id.setBounds(450, 315, 200, 40);
+		this.add(send_id);
+
+		ImageIcon signupicon = new ImageIcon("img//signupicon_gray.jpg");
 		JLabel signupiconlabel = new JLabel(signupicon);
-		signupiconlabel.setBounds(800, 530, 115, 55);
+		signupiconlabel.setBounds(450, 500, 115, 55);
 		this.add(signupiconlabel);
-		
 
-		
-		// 정보 ( 이름, 아이디, 비밀번호, 비밀번호 체크 )
-		
+		signupiconlabel.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				if (id.equals(send_id.getText())) {
+					JOptionPane.showMessageDialog(null, pw); // 확인버튼
+				} else {
+					JOptionPane.showMessageDialog(null, "없는 id입니다!"); // 확인버튼
+				}
+			}
+		});
 
-		JTextField name = new JTextField();
-		name.setBounds(500, 220, 200, 40);
-		this.add(name);
-		
-		JTextField id = new JTextField();
-		id.setBounds(500, 310, 200, 40);
-		this.add(id);
-		
-		JTextField pw = new JTextField();
-		pw.setBounds(500, 400, 200, 40);
-		this.add(pw);
-
-		JTextField pw_ch = new JTextField();
-		pw_ch.setBounds(500, 490, 200, 40);
-		this.add(pw_ch);
-
-		
-
-		
-		
-		ImageIcon backicon = new ImageIcon("img//signup_back.jpg");
+		ImageIcon backicon = new ImageIcon("img//find_password_backJPG.jpg");
 		JLabel backlabel = new JLabel(backicon);
 		backlabel.setBounds(0, 0, 1080, 720);
 		this.add(backlabel);
-		
+
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);

@@ -30,7 +30,7 @@ class loginUI extends JFrame {
 		
 		ImageIcon login  = new ImageIcon("img//login.png");
 		JLabel loginlabel = new JLabel(login);
-		loginlabel.setBounds(680, 310, 140, 70);
+		loginlabel.setBounds(710, 310, 140, 70);
 		this.add(loginlabel);
 		
 		loginlabel.addMouseListener(new MouseAdapter()  {  
@@ -42,22 +42,23 @@ class loginUI extends JFrame {
 				
 		TextField id = new TextField(10);
 		JLabel id_place = new JLabel("ID");
-		id.setBounds(450, 290, 180, 40);
+		id.setBounds(480, 290, 180, 40);
 		this.add(id);
 		//this.id.add(id_place);
 		
 		JTextField pw = new JTextField("PW");
-		pw.setBounds(450, 375, 180, 40);
+		pw.setBounds(480, 375, 180, 40);
 		this.add(pw);
-	
-		JLabel sign = new JLabel("Sign Up");
-		sign.setFont(new Font("나눔고딕", 20, 20)); // 폰트 설정
-		sign.setBounds(580, 440, 90, 30);
-		this.add(sign);
+
+		ImageIcon find_passwordbtn  = new ImageIcon("img//find_passwordbtn.jpg");
+		JLabel find_password_label = new JLabel(find_passwordbtn);
+		find_password_label.setBounds(570, 450, 120, 20);
+		this.add(find_password_label);
 		
-		loginlabel.addMouseListener(new MouseAdapter()  {  
+		
+		find_password_label.addMouseListener(new MouseAdapter()  {  
 		    public void mouseClicked(MouseEvent e)  {  
-		    	send_message_teacher send_message_teacher = new send_message_teacher(); // 회원가입
+		    	signupUI signupUI = new signupUI(); // 비밀번호 찾기
 		    }  
 		}); 
 		
