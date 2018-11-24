@@ -152,12 +152,12 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 		String room[] = {"401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413", "414", "415", "416", "417"};
 		
 		JComboBox room_arr = new JComboBox(room);
-		room_arr.setBounds(630, 40, 100, 40);
+		room_arr.setBounds(380, 35, 100, 40);
 		this.add(room_arr);
 		
 		ImageIcon searchbtn_small = new ImageIcon("img//searchbtn_small.png"); // 검색
 		JLabel searchbtn_small_label = new JLabel(searchbtn_small);
-		searchbtn_small_label.setBounds(730, 20, 130, 80);
+		searchbtn_small_label.setBounds(480, 15, 130, 80);
 		this.add(searchbtn_small_label);
 		
 		searchbtn_small_label.addMouseListener(new MouseAdapter() {
@@ -166,22 +166,49 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 			}
 		});
 		
-		ImageIcon add_and_del = new ImageIcon("img//add_and_del.png"); // 추가/삭제
-		JLabel add_and_del_label = new JLabel(add_and_del);
-		add_and_del_label.setBounds(860, 32, 145, 55);
-		this.add(add_and_del_label);
+		ImageIcon add = new ImageIcon("img//add.png"); // 추가
+		JLabel add_label = new JLabel(add);
+		add_label.setBounds(830, 30, 80, 55);
+		this.add(add_label);
 		
-		add_and_del_label.addMouseListener(new MouseAdapter() {
+		add_label.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				// 추가/삭제 클릭했을 때
+				String add_room = null;
+				add_room = JOptionPane.showInputDialog("추가를 원하는 호실을 입력해주세요");
+				// 호실에 사람이 다 차있으면 추가 불가능 (구현필요하면 하깅)
+				
+				String add_name = null;
+				add_name = JOptionPane.showInputDialog("추가를 원하는 학생의 이름을 입력해주세요");
+				
+				
+				String add_id = null;
+				add_id = JOptionPane.showInputDialog("추가를 원하는 학생의 id를 입력해주세요");
+
+			}
+		});
+		
+		ImageIcon del = new ImageIcon("img//del.png"); // 삭제
+		JLabel del_label = new JLabel(del);
+		del_label.setBounds(920, 30, 80, 55);
+		this.add(del_label);
+		
+		del_label.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				String del_room = null;
+				del_room = JOptionPane.showInputDialog("삭제를 원하는 학생의 호실을 입력해주세요");
+				
+				String del_name = null;
+				del_name = JOptionPane.showInputDialog("삭제를 원하는 학생의 이름을 입력해주세요");
+
 			}
 		});
 
 
+
 		
-		JLabel student_num = new JLabel("2210" + "         " + "신선영" + "         " + "인천광역시 치킨구 피자로 112 198동 1908호" + "    " + "010-7334-0777" );
-		student_num.setFont(new Font("나눔고딕", 20, 20)); // 폰트 설정
-		student_num.setBounds(190, 230, 1000, 70);
+		JLabel student_num = new JLabel("신선영" + "               " + "1234" );
+		student_num.setFont(new Font("나눔고딕", 30, 30)); // 폰트 설정
+		student_num.setBounds(240, 230, 1000, 70);
 		this.add(student_num);
 		
 		ImageIcon backicon = new ImageIcon("img//allstudent_list_back.jpg");
