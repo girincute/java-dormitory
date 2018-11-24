@@ -15,18 +15,13 @@ public class test {
 
 	public static void main(String[] args) {
 
-
 	School api = new School(School.Type.HIGH, School.Region.SEOUL, "B100000465");
 
 	try
 	{
 		java.util.List<SchoolMenu> menu = api.getMonthlyMenu(2017, 4);
-
-
-		// 2017년 4월 22일 저녁 급식 식단표
-		System.out.println(menu.get(21).dinner);
-
-
+		System.out.println(menu.get(21).dinner); // 2017, 4. 22 dinner
+		
 	}catch(SchoolException e)
 	{
 		e.printStackTrace();

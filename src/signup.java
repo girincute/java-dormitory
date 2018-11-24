@@ -39,6 +39,7 @@ class signupUI extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				if (id.equals(send_id.getText())) {
 					JOptionPane.showMessageDialog(null, pw); // 확인버튼
+					dispose();
 				} else {
 					JOptionPane.showMessageDialog(null, "없는 id입니다!"); // 확인버튼
 				}
