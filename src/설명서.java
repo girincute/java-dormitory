@@ -1,4 +1,3 @@
-
 public class 설명서 {
 
 	/*
@@ -42,6 +41,4 @@ public class 설명서 {
 	 * 
 	 * 
 	 * */
-	
-	
 }

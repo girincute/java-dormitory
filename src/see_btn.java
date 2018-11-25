@@ -42,7 +42,7 @@ public static Connection conn = null;
 		
 		Statement s = conn.createStatement();
 		System.out.println(today);
-		// 결과값이 있는 쿼리는 executeQuery로 실행
+		
 		ResultSet rs = s.executeQuery("SELECT * FROM laundry where date='"+ today +"' order by num, time");
 		
 		while(rs.next()) {

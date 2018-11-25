@@ -1,4 +1,4 @@
-// 쪽지와 관련된 (쪽지함, 쪽지보내기) UI
+// 사감선생님) 각종 일지 확인
 
 import java.awt.*;
 import java.awt.event.*;
@@ -19,19 +19,16 @@ import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
 
 class check_laundry_UI extends JFrame {
-public static Connection conn = null;
+	public static Connection conn = null;
 	
-	ArrayList<String[]> out_list = new ArrayList<String[]>();
+	ArrayList<String[]> laundry_list = new ArrayList<String[]>();
 	String[][] contents = new String[100][100];
 	JTable table = new JTable();
 	String header[] = { "세탁기 번호", "시간", "신청자 이름", "신청 호실" };
-	String room_num = "401";
 	
-	public void getlaundryList() throws ClassNotFoundException, SQLException {
+	public void getlaundryList() throws ClassNotFoundException, SQLException { // 세탁일지 확인
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
-		
-		out_list.clear();
 		
 		Statement s = conn.createStatement();
 		ResultSet rs;
@@ -39,18 +36,17 @@ public static Connection conn = null;
 		rs = s.executeQuery("SELECT * FROM laundry order by num, time");
 		
 		while(rs.next()) {
-			out_list.add(new String[]{rs.getString("num"), rs.getString("time"), rs.getString("name"), rs.getString("room")});
+			laundry_list.add(new String[]{rs.getString("num"), rs.getString("time"), rs.getString("name"), rs.getString("room")});
 		}
+		
         int i = 0;
-        
-        System.out.println(out_list.size());
 
-        if (out_list.size() != 0) {
-            for (String[] book : out_list) {
-            	contents[i][0] = book[0];// name
-            	contents[i][1] = book[1]; // when
-            	contents[i][2] = book[2]; // tel
-            	contents[i][3] = book[3];
+        if (laundry_list.size() != 0) {
+            for (String[] laundry : laundry_list) {
+            	contents[i][0] = laundry[0]; // 학번
+            	contents[i][1] = laundry[1]; // 신청 시간
+            	contents[i][2] = laundry[2]; // 이름
+            	contents[i][3] = laundry[3]; // 신청 호실
                 i++;
             }
         }
@@ -61,9 +57,9 @@ public static Connection conn = null;
 		conn.close();
 	}
 	
-	check_laundry_UI() throws ClassNotFoundException, SQLException {
+	check_laundry_UI() throws ClassNotFoundException, SQLException { // 세탁 일지 GUI
 		getlaundryList();
-		this.setTitle("Dormitory Management System_write_laundry");
+		this.setTitle("Dormitory Management System check_laundry");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
@@ -80,13 +76,13 @@ public static Connection conn = null;
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }
 
-class check_out_UI extends JFrame { // 외박일지 확인
+class check_out_UI extends JFrame { // 외박 일지 확인
 	
 	public static Connection conn = null;
 	
@@ -94,13 +90,10 @@ class check_out_UI extends JFrame { // 외박일지 확인
 	String[][] contents = new String[100][100];
 	JTable table = new JTable();
 	String header[] = {"호실", "이름", "외박 종류", "연락처" };
-	String room_num = "401";
 	
 	public void getoutList() throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
-		
-		out_list.clear();
 		
 		Statement s = conn.createStatement();
 		ResultSet rs;
@@ -110,16 +103,14 @@ class check_out_UI extends JFrame { // 외박일지 확인
 		while(rs.next()) {
 			out_list.add(new String[]{rs.getString("room"), rs.getString("name"), rs.getString("when"), rs.getString("tel")});
 		}
+		
         int i = 0;
-        
-        System.out.println(out_list.size());
-
         if (out_list.size() != 0) {
-            for (String[] book : out_list) {
-            	contents[i][0] = book[0];// name
-            	contents[i][1] = book[1]; // when
-            	contents[i][2] = book[2]; // tel
-            	contents[i][3] = book[3];
+            for (String[] out : out_list) {
+            	contents[i][0] = out[0]; // 호실
+            	contents[i][1] = out[1]; // 이름
+            	contents[i][2] = out[2]; // 외박 기간
+            	contents[i][3] = out[3]; // 연락처
                 i++;
             }
         }
@@ -130,15 +121,12 @@ class check_out_UI extends JFrame { // 외박일지 확인
 		conn.close();
 	}
 
-	check_out_UI() throws ClassNotFoundException, SQLException {
+	check_out_UI() throws ClassNotFoundException, SQLException {  // 외박 일지 GUI
 
-		this.setTitle("Dormitory Management System_write_laundry");
+		this.setTitle("Dormitory Management System check_out");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
-		String room[] = { "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "411", "412", "413",
-				"414", "415", "416", "417" };
-		
 		getoutList();
 
 		table = new JTable(contents, header);
@@ -154,7 +142,7 @@ class check_out_UI extends JFrame { // 외박일지 확인
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
@@ -163,7 +151,7 @@ class check_out_UI extends JFrame { // 외박일지 확인
 class check_aircon_UI extends JFrame { // 에어컨신청 확인
 	public static Connection conn = null;
 	
-	ArrayList<String[]> out_list = new ArrayList<String[]>();
+	ArrayList<String[]> aircon_list = new ArrayList<String[]>();
 	String[][] contents = new String[100][100];
 	JTable table = new JTable();
 	String header[] = { "호실", "시간" };	
@@ -180,22 +168,22 @@ class check_aircon_UI extends JFrame { // 에어컨신청 확인
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
-		out_list.clear();
+		aircon_list.clear();
 		
 		Statement s = conn.createStatement();
 		ResultSet rs;
 		
-		rs = s.executeQuery("SELECT * FROM aircon where time="+timen +" AND date='" + today + "' order by room");
+		rs = s.executeQuery("SELECT * FROM aircon where time=" + timen + " AND date='" + today + "' order by room");
 		
 		while(rs.next()) {
-			out_list.add(new String[]{rs.getString("room"), rs.getString("time")});
+			aircon_list.add(new String[]{rs.getString("room"), rs.getString("time")});
 		}
 		
 		int i = 0;
-        if (out_list.size() != 0) {
-            for (String[] book : out_list) {
-            	contents[i][0] = book[0];// name
-            	contents[i][1] = "~" +book[1] + ":00"; // when
+        if (aircon_list.size() != 0) {
+            for (String[] aricon : aircon_list) {
+            	contents[i][0] = aricon[0]; // 호실
+            	contents[i][1] = "~" +aricon[1] + ":00"; // 신청 시간
                 i++;
             }
         }
@@ -206,10 +194,10 @@ class check_aircon_UI extends JFrame { // 에어컨신청 확인
 		conn.close();
 	}
 
-	check_aircon_UI() throws ClassNotFoundException, SQLException {
+	check_aircon_UI() throws ClassNotFoundException, SQLException { // 에어컨 신청 GUI
 		getairconList();
 
-		this.setTitle("Dormitory Management System_write_laundry");
+		this.setTitle("Dormitory Management System check_aircon");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 
@@ -226,13 +214,13 @@ class check_aircon_UI extends JFrame { // 에어컨신청 확인
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 }
 
-class check_soonout_UI extends JFrame { // 외출일지 확인
+class check_soonout_UI extends JFrame { // 외출 일지 확인
 	public static Connection conn = null;
 	
 	ArrayList<String[]> soonout_list = new ArrayList<String[]>();
@@ -248,8 +236,7 @@ class check_soonout_UI extends JFrame { // 외출일지 확인
 		Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String today = sdf.format(d);
-        System.out.println("현재날짜 : "+ sdf.format(d));
-		
+        
 		Statement s = conn.createStatement();
 		ResultSet rs;
 		
@@ -262,9 +249,9 @@ class check_soonout_UI extends JFrame { // 외출일지 확인
         int i = 0;
         if (soonout_list.size() != 0) {
             for (String[] book : soonout_list) {
-            	contents[i][0] = book[0];// room
-            	contents[i][1] = book[1]; // name
-            	contents[i][2] = book[2]; // time
+            	contents[i][0] = book[0]; // 호실
+            	contents[i][1] = book[1]; // 이름
+            	contents[i][2] = book[2]; // 시간
                 i++;
                 table = new JTable(contents, header);
             }
@@ -277,7 +264,7 @@ class check_soonout_UI extends JFrame { // 외출일지 확인
 	}
 
 	check_soonout_UI() throws ClassNotFoundException, SQLException {
-		this.setTitle("Dormitory Management System_write_laundry");
+		this.setTitle("Dormitory Management System check_soonout");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
 		
@@ -295,7 +282,7 @@ class check_soonout_UI extends JFrame { // 외출일지 확인
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}

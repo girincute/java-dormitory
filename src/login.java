@@ -51,22 +51,16 @@ class loginUI extends JFrame {
 					name = rs.getString("name");
 					room = rs.getInt("room");
 					score = rs.getInt("score");
-
-//					student_main uitest = new student_main();
 					
 					student_main.main();
 					
 					System.out.println(score);
 					break;
 				}
-				else {
-					pwch = 0;
-				}
+				else pwch = 0;
 				break;
 			}
-			else {
-				idch = 0;
-			}
+			else idch = 0;
 		}
 		
 		if(idch == 0) JOptionPane.showMessageDialog(null, "없는 아이디입니다!");
@@ -78,7 +72,7 @@ class loginUI extends JFrame {
 		conn.close();
 	}
 	
-	loginUI() {
+	loginUI() { // 로그인 GUI
 		
 		this.setTitle("Dormitory Management System");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,9 +80,6 @@ class loginUI extends JFrame {
 
 		JLabel la = new JLabel();
 		this.add(la);
-
-		
-		// 로그인 버튼
 		
 		ImageIcon login  = new ImageIcon("img//login.png");
 		JLabel loginlabel = new JLabel(login);
@@ -96,12 +87,10 @@ class loginUI extends JFrame {
 		this.add(loginlabel);
 		
 		TextField idfd = new TextField(10);
-//		JLabel id_place = new JLabel("id");
 		idfd.setBounds(480, 290, 180, 40);
 		this.add(idfd);
-		//this.id.add(id_place);
 		
-		JTextField pwfd = new JTextField("pw");
+		JTextField pwfd = new JTextField(10);
 		pwfd.setBounds(480, 375, 180, 40);
 		this.add(pwfd);
 		
@@ -110,16 +99,12 @@ class loginUI extends JFrame {
 				try {
 					id = idfd.getText();
 					pw = pwfd.getText();
-					
-					System.out.println(id);
-					System.out.println(pw);
+
 					getStudent();
 					dispose();
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 		    }  
@@ -144,7 +129,7 @@ class loginUI extends JFrame {
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}

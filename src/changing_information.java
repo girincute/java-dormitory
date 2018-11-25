@@ -1,4 +1,4 @@
-// 정보수정하기
+// 학생 정보 수정하기(비밀번호 수정)
 
 import java.awt.*;
 import java.awt.event.*;
@@ -13,11 +13,11 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.*;
 
-class Changing_informationUI extends JFrame { // 정보수정
+class Changing_informationUI extends JFrame {
 	
 	public static Connection conn = null;
 	
-	public void change_pw(String chpw) throws ClassNotFoundException, SQLException {
+	public void change_pw(String chpw) throws ClassNotFoundException, SQLException { // 바뀐 비밀번호 DB 저장
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
@@ -26,7 +26,6 @@ class Changing_informationUI extends JFrame { // 정보수정
 		ps.setInt(2, Integer.parseInt(loginUI.id));
 		int res = ps.executeUpdate();
 		
-		// res가 0보다 크다면 UPDATE로 인해 영향 받은 행이 1개 이상 있다는 의미
 		if(res > 0) System.out.println(String.format("%d row update success", res));
 		
 		ps.close();
@@ -34,7 +33,7 @@ class Changing_informationUI extends JFrame { // 정보수정
 		conn.close();
 	}
 	
-	Changing_informationUI() {
+	Changing_informationUI() { // GUI
 
 		this.setTitle("Dormitory Management Changing information");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,10 +59,8 @@ class Changing_informationUI extends JFrame { // 정보수정
 				try {
 					change_pw(search.getText());
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -72,9 +69,8 @@ class Changing_informationUI extends JFrame { // 정보수정
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
 	}
 }
 

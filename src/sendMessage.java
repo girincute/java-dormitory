@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+
+import javax.swing.JOptionPane;
  
 public class sendMessage {
  
@@ -22,7 +24,7 @@ public class sendMessage {
         OutputStreamWriter osw =null;
         BufferedWriter bw = null;
         
-        InputStream is =null;
+        InputStream is = null;
         InputStreamReader isr = null;
         BufferedReader br = null;
         
@@ -45,7 +47,7 @@ public class sendMessage {
             String receiveData = "";
             receiveData = br.readLine();
             
-            
+            System.out.println(receiveData);
         } catch(Exception e){
             e.printStackTrace();
         } finally {

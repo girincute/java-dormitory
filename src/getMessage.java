@@ -1,3 +1,5 @@
+// 메세지 수신 부분(서버) -> DB 저장
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -11,7 +13,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
- 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class getMessage {
 	public static Connection conn = null;
  
@@ -68,15 +72,21 @@ public class getMessage {
         }
 	}
     
-    public void saveData(String[] data) throws ClassNotFoundException, SQLException {
+    public void saveData(String[] data) throws ClassNotFoundException, SQLException { // DB에 쪽지 저장
     	Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
-		PreparedStatement ps = conn.prepareStatement("INSERT INTO message VALUES(?, ?, ?)");
+		Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sdf.format(d);
+		
+		PreparedStatement ps = conn.prepareStatement("INSERT INTO message VALUES(?, ?, ?, ?, ?)");
 
-		ps.setString(1, data[0]);
-		ps.setString(2, data[1]);
-		ps.setString(3, data[2]);
+		ps.setString(1, data[0]); // 송신자 이름
+		ps.setString(2, data[1]); // 수신자 이름
+		ps.setString(3, data[2]); // 내용
+		ps.setString(4, today); // 보낸 날짜
+		ps.setInt(5, 0);
 		
 		int res = ps.executeUpdate();
 		
@@ -87,7 +97,7 @@ public class getMessage {
 		conn.close();
     }
     
-    public void receiveData(String data, Socket socket){
+    public void receiveData(String data, Socket socket){ // 송신자에게 성공 메세지 보내기
         OutputStream os = null;
         OutputStreamWriter osw = null;
         BufferedWriter bw = null;
@@ -99,6 +109,7 @@ public class getMessage {
             
             bw.write(data); 
             bw.flush();
+            
         } catch(Exception e1) {
             e1.printStackTrace();
         } finally {

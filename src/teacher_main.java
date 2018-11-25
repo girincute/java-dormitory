@@ -253,7 +253,15 @@ class UImain extends JFrame {
 
 		postboxlabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				message_room_teacher message_room_teacherUI = new message_room_teacher(); // 쪽지함
+				try {
+					message_room_teacher message_room_teacherUI = new message_room_teacher();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} // 쪽지함
 			}
 		});
 

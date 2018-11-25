@@ -1,6 +1,5 @@
 // 포스트들에 관련된 (공지사항 더보기, 상벌점 더보기, 청소구역 전체보기 ) UI
 
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
@@ -18,7 +17,6 @@ import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.*;
-
 
 class noticeUI extends JFrame { // 공지사항
 	public static Connection conn = null;
@@ -341,10 +339,8 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 				try {
 					addStudent(add_room, add_name, add_id);
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
@@ -352,7 +348,7 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 			}
 		});
 		
-		ImageIcon del = new ImageIcon("img//del.png"); // 삭제
+		ImageIcon del = new ImageIcon("img//del.png");
 		JLabel del_label = new JLabel(del);
 		del_label.setBounds(920, 50, 80, 55);
 		this.add(del_label);
@@ -368,10 +364,8 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 				try {
 					delStudent(del_room, del_name);
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
@@ -391,7 +385,7 @@ class student_listUI extends JFrame { // 학생 리스트 전체보기
 		this.pack();
 		this.setSize(1080, 720);
 		this.setVisible(true);
-		this.setLocationRelativeTo(null); // 자동으로 가운데에서 출력하게
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}

@@ -113,7 +113,6 @@ class UItest extends JFrame {
 		String clean_where_db[] = {"washroom", "shower", "laundary", "toilet", "hall", "stair", "restarea"};
 		
 		Class.forName("org.sqlite.JDBC");
-		
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
 		Statement s = conn.createStatement();
@@ -131,6 +130,15 @@ class UItest extends JFrame {
 				}
 			}
 		}
+		
+		rs = s.executeQuery("SELECT * FROM clean");
+		
+		int nowroom = 400;
+		while(rs.next()) {
+			nowroom = rs.getInt("room");
+		}
+		
+		System.out.println(nowroom);
 		
 		s.close();
 		rs.close();
@@ -205,6 +213,12 @@ class UItest extends JFrame {
 			}
 		});
 
+		Calendar cal = Calendar.getInstance() ;
+	    cal.setTime(new Date());
+	     
+//	    int dayNum = cal.get(Calendar.DAY_OF_WEEK) ;
+	    int dayNum = 2;
+	
 		// 청소구역
 		getClean();
 		String clean_where[] = { "세면실", "샤워실", "세탁실", "화장실", "복도", "계단", "휴게실", "없음" };
@@ -226,10 +240,8 @@ class UItest extends JFrame {
 				try {
 					cleanclassUI cleanclass = new cleanclassUI();
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}// 청소 구역 전체 보기
 			}
@@ -272,7 +284,15 @@ class UItest extends JFrame {
 
 		postboxlabel.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				message_room_student message_room_student = new message_room_student(); // 쪽지함
+				try {
+					message_room_student message_room_student = new message_room_student();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} // 쪽지함
 			}
 		});
 
@@ -355,48 +375,15 @@ class UItest extends JFrame {
 }
 
 
-public class student_main {	
-	public static Connection conn = null;
-	static int nowroom;
+public class student_main { 
 	
-	public static void autoclean() throws ClassNotFoundException, SQLException {
-	    Calendar cal = Calendar.getInstance() ;
-	    cal.setTime(new Date());
-	     
-//	    int dayNum = cal.get(Calendar.DAY_OF_WEEK) ;
-	    int dayNum = 2;
-	    int nowroom = 0;
-	    if(dayNum == 2) {
-	    	Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
-			
-			Statement s = conn.createStatement();
-
-			ResultSet rs = s.executeQuery("SELECT * FROM clean where area='restarea'");
-			
-			while(rs.next()) {
-				nowroom = rs.getInt("room"); // 현재 방 받기
-			}
-	
-			s.close();
-			rs.close();
-			
-			String clean_where_db[] = {"washroom", "shower", "laundary", "toilet", "hall", "stair", "restarea"};
-
-			conn.close();
-	    }
-	}
-	
-	public static void main() throws ClassNotFoundException, SQLException{
-			
+	public static void main() throws ClassNotFoundException, SQLException{		
 		if(loginUI.score <= -10) {
 			JOptionPane.showMessageDialog(null, "벌점이 10점 이상입니다!("+loginUI.score + "점) 주의하세요!!");
 		}
 		else {
-			System.out.println(loginUI.score);
+			System.out.println("메인 " + loginUI.score);
 		}
-		
-		autoclean();
 		
 		new UItest();
 	}
