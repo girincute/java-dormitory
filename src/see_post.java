@@ -33,7 +33,7 @@ class noticeUI extends JFrame { // 공지사항
 		rs = s.executeQuery("SELECT * FROM notice order by nid desc LIMIT 1");
 		
 		while(rs.next()) {
-			notice = rs.getString("notice");
+			notice = "<html>" + rs.getString("notice") + "</html>";
 		}
 		
 		s.close();

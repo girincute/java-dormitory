@@ -47,13 +47,22 @@ class UItest extends JFrame {
 //        Calendar cal = Calendar.getInstance(); // Date 가져오기
 //        int year = cal.get(Calendar.YEAR);
 //        int month = cal.get(Calendar.MONTH) + 1; // 월
-//        int date = cal.get(Calendar.DAY_OF_MONTH); // 일
+//        //int date = cal.get(Calendar.DAY_OF_MONTH) + 1; // 일
 //
+//        int date = 26;
+//        
 //        try {
 //            List<SchoolMenu> menu = api.getMonthlyMenu(year, month);
 //            System.out.println(year + "년 " + month + "월 " + date + "일 급식\n");
-//            meal = menu.get(date - 1).breakfast;
+//            meal = "<html>" + menu.get(date - 1).breakfast + "</html>";
 //
+//            
+//            meal = meal.replaceAll("\n","<br>");
+//            
+//            System.out.println(meal);
+//            System.out.println(meal.getClass());
+//
+//            
 //        } catch(SchoolException e) {
 //            e.printStackTrace();
 //        }
@@ -69,7 +78,7 @@ class UItest extends JFrame {
 		rs = s.executeQuery("SELECT * FROM notice order by nid desc LIMIT 1");
 		
 		while(rs.next()) {
-			notice = rs.getString("notice");
+			notice = "<html>" + rs.getString("notice") + "</html>";
 		}
 		
 		s.close();
@@ -297,8 +306,8 @@ class UItest extends JFrame {
 		this.add(special_post);
 			
 		JLabel mealL = new JLabel(meal);
-		mealL.setFont(new Font("나눔고딕", 25, 25)); // 폰트 설정
-		mealL.setBounds(810, 150, 600, 600);
+		mealL.setFont(new Font("나눔고딕", 15, 15)); // 폰트 설정
+		mealL.setBounds(800, -50, 600, 600);
 		this.add(mealL);
 
 		// 버튼 (쪽지, 쪽지함, 프로필, 세탁일지, 외박일지, 에어컨사용, 외출일지)

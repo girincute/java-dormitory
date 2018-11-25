@@ -38,7 +38,7 @@ class message_room_student extends JFrame { // 학생 쪽지함
 		PreparedStatement ps = conn.prepareStatement("UPDATE message SET read = 1 where toname='" + loginUI.name +"'");
 		int res = ps.executeUpdate();
 		
-		rs = s.executeQuery("SELECT * FROM message where toname='" + loginUI.name + "' order by date desc");
+		rs = s.executeQuery("SELECT * FROM message where toname='" + loginUI.name + "' or mename='" +loginUI.name+"'order by date desc");
 		
 		while(rs.next()) {
 			message_list.add(new String[]{rs.getString("date"), rs.getString("mename"), rs.getString("toname"), rs.getString("message"), rs.getString("read")});
