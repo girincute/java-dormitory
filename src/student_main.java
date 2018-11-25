@@ -59,7 +59,7 @@ class UItest extends JFrame {
 //        }
 //	}
 	
-	public void noticeList() throws SQLException, ClassNotFoundException {
+	public void noticeList() throws SQLException, ClassNotFoundException {	
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
@@ -108,6 +108,43 @@ class UItest extends JFrame {
 		conn.close();
 	}
 	
+	public void updateClean() throws ClassNotFoundException, SQLException {
+		String clean_where_db[] = {"washroom", "shower", "laundary", "toilet", "hall", "stair", "restarea"};
+		
+		Class.forName("org.sqlite.JDBC");
+		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
+		
+		Statement s = conn.createStatement();
+		ResultSet rs;
+		
+		rs = s.executeQuery("SELECT * FROM clean");
+		
+		int nowroom = 400;
+		while(rs.next()) {
+			nowroom = rs.getInt("room");
+		}
+		
+		System.out.println(nowroom);
+		
+		s.close();
+		rs.close();
+		
+		PreparedStatement ps = conn.prepareStatement("UPDATE clean SET room = '" + nowroom + "' where area = '" + clean_where_db[6] + "'");;
+		
+		for(int i = 0; i < 7; i++) {
+			nowroom++;
+
+			ps = conn.prepareStatement("UPDATE clean SET room = '" + nowroom + "' where area = '" + clean_where_db[i] + "'");
+			int res = ps.executeUpdate();
+			
+			if(nowroom == 417) nowroom = 400;
+		}
+		
+		ps.close();
+		
+		conn.close();
+	}
+	
 	// 청소 구역 얻기
 	public void getClean() throws ClassNotFoundException, SQLException {
 		String clean_where_db[] = {"washroom", "shower", "laundary", "toilet", "hall", "stair", "restarea"};
@@ -133,13 +170,6 @@ class UItest extends JFrame {
 		
 		rs = s.executeQuery("SELECT * FROM clean");
 		
-		int nowroom = 400;
-		while(rs.next()) {
-			nowroom = rs.getInt("room");
-		}
-		
-		System.out.println(nowroom);
-		
 		s.close();
 		rs.close();
 		
@@ -147,6 +177,12 @@ class UItest extends JFrame {
 	}
 
 	UItest() throws ClassNotFoundException, SQLException {
+		if(loginUI.score <= -10) {
+			JOptionPane.showMessageDialog(null, "벌점이 10점 이상입니다!("+loginUI.score + "점) 주의하세요!!");
+		}
+		else {
+			System.out.println("메인 " + loginUI.score);
+		}
 //		getMeal(); // 자바 업데이트 후 보셔야 합니당!
 
 		this.setTitle("Dormitory Management System");
@@ -219,6 +255,7 @@ class UItest extends JFrame {
 //	    int dayNum = cal.get(Calendar.DAY_OF_WEEK) ;
 	    int dayNum = 2;
 	
+	    if(dayNum == 2) updateClean();
 		// 청소구역
 		getClean();
 		String clean_where[] = { "세면실", "샤워실", "세탁실", "화장실", "복도", "계단", "휴게실", "없음" };
@@ -377,14 +414,7 @@ class UItest extends JFrame {
 
 public class student_main { 
 	
-	public static void main() throws ClassNotFoundException, SQLException{		
-		if(loginUI.score <= -10) {
-			JOptionPane.showMessageDialog(null, "벌점이 10점 이상입니다!("+loginUI.score + "점) 주의하세요!!");
-		}
-		else {
-			System.out.println("메인 " + loginUI.score);
-		}
-		
+	public static void main() throws ClassNotFoundException, SQLException{			
 		new UItest();
 	}
 

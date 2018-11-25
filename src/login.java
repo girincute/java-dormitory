@@ -52,8 +52,6 @@ class loginUI extends JFrame {
 					room = rs.getInt("room");
 					score = rs.getInt("score");
 					
-					student_main.main();
-					
 					System.out.println(score);
 					break;
 				}
@@ -101,6 +99,7 @@ class loginUI extends JFrame {
 					pw = pwfd.getText();
 
 					getStudent();
+					new UItest();
 					dispose();
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
