@@ -23,9 +23,9 @@ import javax.swing.event.*;
 import java.util.Calendar;
 import java.util.List;
 
-//import org.hyunjun.school.School;
-//import org.hyunjun.school.SchoolMenu;
-//import org.hyunjun.school.SchoolException;
+import org.hyunjun.school.School;
+import org.hyunjun.school.SchoolMenu;
+import org.hyunjun.school.SchoolException;
 
 class UItest extends JFrame {
 	public static Connection conn = null;
@@ -41,32 +41,32 @@ class UItest extends JFrame {
 	
 	public String meal;
 	
-//	public void getMeal() {
-//		School api = new School(School.Type.HIGH, School.Region.SEOUL, "B100000439");
-//
-//        Calendar cal = Calendar.getInstance(); // Date 가져오기
-//        int year = cal.get(Calendar.YEAR);
-//        int month = cal.get(Calendar.MONTH) + 1; // 월
-//        //int date = cal.get(Calendar.DAY_OF_MONTH) + 1; // 일
-//
-//        int date = 26;
-//        
-//        try {
-//            List<SchoolMenu> menu = api.getMonthlyMenu(year, month);
-//            System.out.println(year + "년 " + month + "월 " + date + "일 급식\n");
-//            meal = "<html>" + menu.get(date - 1).breakfast + "</html>";
-//
-//            
-//            meal = meal.replaceAll("\n","<br>");
-//            
-//            System.out.println(meal);
-//            System.out.println(meal.getClass());
-//
-//            
-//        } catch(SchoolException e) {
-//            e.printStackTrace();
-//        }
-//	}
+	public void getMeal() {
+		School api = new School(School.Type.HIGH, School.Region.SEOUL, "B100000439");
+
+        Calendar cal = Calendar.getInstance(); // Date 가져오기
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1; // 월
+        //int date = cal.get(Calendar.DAY_OF_MONTH) + 1; // 일
+
+        int date = 26;
+        
+        try {
+            List<SchoolMenu> menu = api.getMonthlyMenu(year, month);
+            System.out.println(year + "년 " + month + "월 " + date + "일 급식\n");
+            meal = "<html>" + menu.get(date - 1).breakfast + "</html>";
+
+            
+            meal = meal.replaceAll("\n","<br>");
+            
+            System.out.println(meal);
+            System.out.println(meal.getClass());
+
+            
+        } catch(SchoolException e) {
+            e.printStackTrace();
+        }
+	}
 	
 	public void noticeList() throws SQLException, ClassNotFoundException {	
 		Class.forName("org.sqlite.JDBC");
@@ -192,7 +192,7 @@ class UItest extends JFrame {
 		else {
 			System.out.println("메인 " + loginUI.score);
 		}
-//		getMeal(); // 자바 업데이트 후 보셔야 합니당!
+		getMeal(); // 자바 업데이트 후 보셔야 합니당!
 
 		this.setTitle("Dormitory Management System");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
