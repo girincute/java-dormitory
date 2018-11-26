@@ -43,7 +43,7 @@ class UImain extends JFrame {
 		Statement s = conn.createStatement();
 		ResultSet rs;
 		
-		rs = s.executeQuery("SELECT * FROM clean where room=" + loginUI.room);
+		rs = s.executeQuery("SELECT * FROM clean where room=" + UImain.sroom);
 		
 		while(rs.next()) {
 			String dbarea = rs.getString("area");
@@ -51,6 +51,7 @@ class UImain extends JFrame {
 			for(int i = 0; i < clean_where_db.length; i++) {
 				if(dbarea.equals(clean_where_db[i])) {
 					clean = i;
+					System.out.println(i);
 					break;
 				}
 			}
@@ -185,6 +186,7 @@ class UImain extends JFrame {
 		modifi_clean_label.setBounds(640, 570, 85, 45);
 		this.add(modifi_clean_label);
 	
+		System.out.println(clean_where[clean]);
 		cleanroom = new JLabel(clean_where[clean]);
 		cleanroom.setFont(new Font("나눔고딕", 50, 50));
 		cleanroom.setBounds(530, 430, 170, 50);

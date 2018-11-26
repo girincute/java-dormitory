@@ -23,9 +23,9 @@ import javax.swing.event.*;
 import java.util.Calendar;
 import java.util.List;
 
-import org.hyunjun.school.School;
-import org.hyunjun.school.SchoolMenu;
-import org.hyunjun.school.SchoolException;
+//import org.hyunjun.school.School;
+//import org.hyunjun.school.SchoolMenu;
+//import org.hyunjun.school.SchoolException;
 
 class UItest extends JFrame {
 	public static Connection conn = null;
@@ -41,32 +41,30 @@ class UItest extends JFrame {
 	
 	public String meal;
 	
-	public void getMeal() {
-		School api = new School(School.Type.HIGH, School.Region.SEOUL, "B100000439");
-
-        Calendar cal = Calendar.getInstance(); // Date 가져오기
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH) + 1; // 월
-        //int date = cal.get(Calendar.DAY_OF_MONTH) + 1; // 일
-
-        int date = 26;
-        
-        try {
-            List<SchoolMenu> menu = api.getMonthlyMenu(year, month);
-            System.out.println(year + "년 " + month + "월 " + date + "일 급식\n");
-            meal = "<html>" + menu.get(date - 1).breakfast + "</html>";
-
-            
-            meal = meal.replaceAll("\n","<br>");
-            
-            System.out.println(meal);
-            System.out.println(meal.getClass());
-
-            
-        } catch(SchoolException e) {
-            e.printStackTrace();
-        }
-	}
+//	public void getMeal() {
+//		School api = new School(School.Type.HIGH, School.Region.SEOUL, "B100000439");
+//
+//        Calendar cal = Calendar.getInstance(); // Date 가져오기
+//        int year = cal.get(Calendar.YEAR);
+//        int month = cal.get(Calendar.MONTH) + 1; // 월
+//        int date = cal.get(Calendar.DAY_OF_MONTH) + 1; // 일
+//        
+//        try {
+//            List<SchoolMenu> menu = api.getMonthlyMenu(year, month);
+//            System.out.println(year + "년 " + month + "월 " + date + "일 급식\n");
+//            meal = "<html>" + menu.get(date - 1).breakfast + "</html>";
+//
+//            
+//            meal = meal.replaceAll("\n","<br>");
+//            
+//            System.out.println(meal);
+//            System.out.println(meal.getClass());
+//
+//            
+//        } catch(SchoolException e) {
+//            e.printStackTrace();
+//        }
+//	}
 	
 	public void noticeList() throws SQLException, ClassNotFoundException {	
 		Class.forName("org.sqlite.JDBC");
@@ -126,6 +124,15 @@ class UItest extends JFrame {
 		Statement s = conn.createStatement();
 		ResultSet rs;
 		
+		rs = s.executeQuery("SELECT * FROM date");
+		
+		while(rs.next()) {
+			if(rs.getInt("updateClean") == 1) {
+				System.out.println("청소구역은 하루에 한 번 업데이트 됨!!");
+				return;
+			}
+		}
+		
 		rs = s.executeQuery("SELECT * FROM clean");
 		
 		int nowroom = 400;
@@ -148,6 +155,23 @@ class UItest extends JFrame {
 			
 			if(nowroom == 417) nowroom = 400;
 		}
+		
+		ps = conn.prepareStatement("UPDATE date SET updateClean = 1");
+		ps.executeUpdate();
+		
+		ps.close();
+		
+		conn.close();
+	}
+	
+	public void updateClean_date() throws ClassNotFoundException, SQLException {
+		Class.forName("org.sqlite.JDBC");
+		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
+		
+		Statement s = conn.createStatement();
+		
+		PreparedStatement ps = conn.prepareStatement("UPDATE date SET updateClean = 0");
+		ps.executeUpdate();
 		
 		ps.close();
 		
@@ -192,7 +216,7 @@ class UItest extends JFrame {
 		else {
 			System.out.println("메인 " + loginUI.score);
 		}
-		getMeal(); // 자바 업데이트 후 보셔야 합니당!
+//		getMeal(); // 자바 업데이트 후 보셔야 합니당!
 
 		this.setTitle("Dormitory Management System");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -208,7 +232,7 @@ class UItest extends JFrame {
 		noticeList();
 		JLabel post1 = new JLabel(notice);
 		post1.setFont(new Font("나눔고딕", 20, 20)); // 폰트 설정
-		post1.setBounds(50, 20, 400, 300);
+		post1.setBounds(50, 50, 400, 300);
 		this.add(post1);
 
 		// 공지사항 더 보기
@@ -261,10 +285,10 @@ class UItest extends JFrame {
 		Calendar cal = Calendar.getInstance() ;
 	    cal.setTime(new Date());
 	     
-//	    int dayNum = cal.get(Calendar.DAY_OF_WEEK) ;
-	    int dayNum = 2;
+	    int dayNum = cal.get(Calendar.DAY_OF_WEEK) ;
 	
 	    if(dayNum == 2) updateClean();
+	    else updateClean_date();
 		// 청소구역
 		getClean();
 		String clean_where[] = { "세면실", "샤워실", "세탁실", "화장실", "복도", "계단", "휴게실", "없음" };

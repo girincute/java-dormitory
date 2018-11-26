@@ -27,6 +27,7 @@ class plus_and_minus_edit_UI extends JFrame { // 상벌점 추가/삭제
 		UImain.sscore -= minus;
 		
 		int rscore = plus - minus; // 내역에 추가할 상벌점
+		System.out.println(plus + " " + minus);
 		
 		PreparedStatement ps = conn.prepareStatement("UPDATE student SET score = ? where id = ?"); // 총 점수
 		ps.setInt(1, UImain.sscore);
@@ -36,6 +37,7 @@ class plus_and_minus_edit_UI extends JFrame { // 상벌점 추가/삭제
 		ps = conn.prepareStatement("INSERT INTO score(id, score, reason) VALUES(?, ?, ?)"); // 상벌점 내역 추가
 		ps.setInt(1, UImain.sid);
 		ps.setInt(2, rscore);
+		System.out.println(rscore);
 		ps.setString(3, reason);
 		res = ps.executeUpdate();
 		
@@ -74,6 +76,7 @@ class plus_and_minus_edit_UI extends JFrame { // 상벌점 추가/삭제
 		changbtn_label.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				try {
+					System.out.println(minus.getText());
 					chgScore(why.getText(), Integer.parseInt(plus.getText()), Integer.parseInt(minus.getText()));
 					JOptionPane.showMessageDialog(null, "변경사항이 적용되었습니다!");
 					dispose();

@@ -52,7 +52,7 @@ class noticeUI extends JFrame { // 공지사항
 		
 		JLabel index = new JLabel(notice);
 		index.setFont(new Font("나눔고딕", 20, 20)); // 폰트 설정
-		index.setBounds(170, 200, 400, 70);
+		index.setBounds(170, 100, 700, 300);
 		this.add(index);
 		
 		ImageIcon notice_back = new ImageIcon("img//notice_back.jpg");

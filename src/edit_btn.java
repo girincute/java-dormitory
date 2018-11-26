@@ -27,13 +27,17 @@ class check_laundry_UI extends JFrame {
 	String header[] = { "세탁기 번호", "시간", "신청자 이름", "신청 호실" };
 	
 	public void getlaundryList() throws ClassNotFoundException, SQLException { // 세탁일지 확인
+		Date d = new Date();
+        SimpleDateFormat sdfd = new SimpleDateFormat("yyyy-MM-dd");
+        String today = sdfd.format(d);
+		
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
 		Statement s = conn.createStatement();
 		ResultSet rs;
 		
-		rs = s.executeQuery("SELECT * FROM laundry order by num, time");
+		rs = s.executeQuery("SELECT * FROM laundry where date='"+today+"' order by num, time");
 		
 		while(rs.next()) {
 			laundry_list.add(new String[]{rs.getString("num"), rs.getString("time"), rs.getString("name"), rs.getString("room")});

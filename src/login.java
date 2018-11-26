@@ -99,7 +99,7 @@ class loginUI extends JFrame {
 					pw = pwfd.getText();
 
 					getStudent();
-					new UItest();
+					if(idch != 0 && pwch != 0) new UItest();
 					dispose();
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();

@@ -22,7 +22,7 @@ class Changing_informationUI extends JFrame {
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
 		PreparedStatement ps = conn.prepareStatement("UPDATE student SET pw = ? where id = ?");
-		ps.setInt(1, Integer.parseInt(chpw));
+		ps.setString(1, chpw);
 		ps.setInt(2, Integer.parseInt(loginUI.id));
 		int res = ps.executeUpdate();
 		
@@ -58,6 +58,8 @@ class Changing_informationUI extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					change_pw(search.getText());
+					JOptionPane.showMessageDialog(null, "비밀번호가 변경되었습니다.");
+					dispose();
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (SQLException e1) {
