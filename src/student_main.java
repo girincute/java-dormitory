@@ -115,9 +115,7 @@ class UItest extends JFrame {
 		conn.close();
 	}
 	
-	public void updateClean() throws ClassNotFoundException, SQLException {
-		String clean_where_db[] = {"washroom", "shower", "laundary", "toilet", "hall", "stair", "restarea"};
-		
+	public int getdateclean() throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
 		
@@ -126,12 +124,29 @@ class UItest extends JFrame {
 		
 		rs = s.executeQuery("SELECT * FROM date");
 		
+		int num = 0;
 		while(rs.next()) {
-			if(rs.getInt("updateClean") == 1) {
-				System.out.println("청소구역은 하루에 한 번 업데이트 됨!!");
-				return;
-			}
+			num = rs.getInt("updateClean");
 		}
+		
+		s.close();
+		rs.close();
+		
+		conn.close();
+		
+		System.out.println("getdateClean = " + num);
+		
+		return num;
+	}
+	
+	public void updateClean() throws ClassNotFoundException, SQLException {
+		String clean_where_db[] = {"washroom", "shower", "laundary", "toilet", "hall", "stair", "restarea"};
+		
+		Class.forName("org.sqlite.JDBC");
+		conn = DriverManager.getConnection("jdbc:sqlite:" + "dormitory.db");
+		
+		Statement s = conn.createStatement();
+		ResultSet rs;
 		
 		rs = s.executeQuery("SELECT * FROM clean");
 		
@@ -147,6 +162,7 @@ class UItest extends JFrame {
 		
 		PreparedStatement ps = conn.prepareStatement("UPDATE clean SET room = '" + nowroom + "' where area = '" + clean_where_db[6] + "'");;
 		
+		if(nowroom == 417) nowroom = 401;
 		for(int i = 0; i < 7; i++) {
 			nowroom++;
 
@@ -173,6 +189,7 @@ class UItest extends JFrame {
 		PreparedStatement ps = conn.prepareStatement("UPDATE date SET updateClean = 0");
 		ps.executeUpdate();
 		
+		s.close();
 		ps.close();
 		
 		conn.close();
@@ -285,10 +302,11 @@ class UItest extends JFrame {
 		Calendar cal = Calendar.getInstance() ;
 	    cal.setTime(new Date());
 	     
-	    int dayNum = cal.get(Calendar.DAY_OF_WEEK) ;
+	    int dayNum = cal.get(Calendar.DAY_OF_WEEK);
 	
-	    if(dayNum == 2) updateClean();
-	    else updateClean_date();
+	    if(dayNum == 2 && getdateclean() != 1) updateClean();
+	    
+	    if(dayNum != 2) updateClean_date();
 		// 청소구역
 		getClean();
 		String clean_where[] = { "세면실", "샤워실", "세탁실", "화장실", "복도", "계단", "휴게실", "없음" };
