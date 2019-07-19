@@ -68,5 +68,5 @@ git clone https://github.com/girincute/java-dormitory/.git
 
 ## Contact
 
-Yebin Kim - girincute@gmail.com
+Yebin Kim - girincute@gmail.com  
 Sunyoung Shin - ajufresh@gmail.com
